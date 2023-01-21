@@ -14,4 +14,4 @@ A table should also appear in the console as output, containing the following in
 
 ### Example
 
-    python3 oblique_throw_without_air_res.py --alpha 10 -g 9.81 -y 20 -i 20
+    python3 oblique_throw_without_air_res.py --alpha 45 -g 9.81 -y 20 -i 10
