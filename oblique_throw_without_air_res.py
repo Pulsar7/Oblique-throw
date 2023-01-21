@@ -7,7 +7,8 @@ import sys,math,argparse,numpy as np
 import matplotlib.pyplot as plt
 from rich import (pretty,console as cons)
 from rich.table import Table
-from sympy import (symbols, Eq, solve)
+from sympy import (symbols,Eq,solve)
+
 
 class Simulation():
     def __init__(self,console,v_zero:float,g:float,h:float,alpha:float) -> None:
@@ -33,8 +34,8 @@ class Simulation():
         table.add_row("Initial height in meters",f"{h} m")
         table.add_row("Dropping angle alpha in deg",f"{alpha}°")
         table.add_section()
-        table.add_row("Reversal point: y(x) = 0",f"{solutions[1]} meters")
-        table.add_row("Reversal point: y(t) = 0",f"{solutions_2[1]} seconds")
+        table.add_row("zero point: y(x) = 0",f"{solutions[1]} meters")
+        table.add_row("zero point: y(t) = 0",f"{solutions_2[1]} seconds")
         self.console.print(table)
 
         ### y(x)
@@ -66,14 +67,13 @@ class Simulation():
         ### y(t)
         t_coordinates:list[float] = []
         y_coordinates:list[float] = []
-        times = np.linspace(0,100,100)
+        times = np.linspace(0,100,500)
         for t in times:
             y:float = ((-1/2) * g * (t**2) + v_0 * math.sin(alpha) * t + h)
+            t_coordinates.append(t)
+            y_coordinates.append(y)
             if y < 0:
                 break
-            else:
-                t_coordinates.append(t)
-                y_coordinates.append(y)
         ax[0][1].plot(t_coordinates, y_coordinates, linewidth = 1.5, linestyle = "-", color = "royalblue", marker = "x",
             label = "trajectory "+r'$y(t)$'
         )
@@ -115,7 +115,7 @@ class Simulation():
         ax[1][1].set_xlabel("Time t (seconds)")
         ax[1][1].set_ylabel("Acceleration v ("+r'$\frac{m}{s}$'+")")
         ax[1][1].legend(loc='best')
-        ax[1][1].set_yticks(np.arange(min(v_coordinates),max(v_coordinates)+10,10))
+        ax[1][1].set_yticks(np.arange(min(v_coordinates),max(v_coordinates)+5,1))
         ax[1][1].set_xticks(np.arange(0, max(t_coordinates), 1))
         ax[1][1].set_ylim(ymin=min(v_coordinates)-2)
         ax[1][1].set_xlim(xmin=0)
