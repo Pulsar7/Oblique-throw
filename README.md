@@ -6,7 +6,7 @@ A table should also appear in the console as output, containing the following in
 - The zero point: y(x) = 0
 - The zero point: y(t) = 0
 
-To obtain the results mentioned in the table, the Python module [sympy](https://www.sympy.org/en/index.html) was used to solve the linear systems of equations.
+To obtain the results mentioned in the table, the Python module [sympy](https://www.sympy.org/en/index.html) was used to solve the linear systems of equations. Unfortunately, I have not yet figured out how to calculate the best scaling factor for each coordinate system individually.
 
 #### Units
 - *alpha* = deg
