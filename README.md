@@ -15,3 +15,7 @@ A table should also appear in the console as output, containing the following in
 ### Example
 
     python3 oblique_throw_without_air_res.py --alpha 45 -g 9.81 -y 20 -i 10
+
+![](https://github.com/Pulsar7/Oblique-throw/blob/main/images/table_output.png)
+
+![](https://github.com/Pulsar7/Oblique-throw/blob/main/images/figure.png)
